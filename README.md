@@ -42,6 +42,10 @@ npm run dev
 
 Puis ouvrir `http://localhost:5173`.
 
+## Le lien du portfolio 
+
+lien : https://mon-portfolio-theta-lyart.vercel.app/
+
 ## Contact
 
 Marouane Chafiqi — Marrakech, Maroc
