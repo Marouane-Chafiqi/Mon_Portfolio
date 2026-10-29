@@ -1,0 +1,96 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ====== COULEURS DU SITE : change-les ICI (format "R G B") ====== */
+:root {
+  color-scheme: light;
+  --navy: 91 58 33; /* marron foncé  #5B3A21 */
+  --navy-2: 122 79 44; /* marron moyen  #7A4F2C */
+  --navy-3: 150 100 58; /* marron clair  #96643A */
+  --paper: 238 223 192; /* beige         #EEDFC0 */
+  --paper-2: 226 207 166; /* beige foncé   #E2CFA6 */
+  --gold: 123 199 77; /* vert vif      #7BC74D */
+  --gold-dark: 31 92 46; /* vert foncé    #1F5C2E */
+  --ink: 52 33 18; /* texte         #342112 */
+  --muted: 110 84 58; /* texte gris-marron */
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+  h1,
+  h2,
+  h3 {
+    @apply font-serif text-navy;
+    letter-spacing: -0.01em;
+  }
+  ::selection {
+    background: rgb(var(--gold));
+    color: rgb(var(--navy));
+  }
+  :focus-visible {
+    outline: 2px solid rgb(var(--gold-dark));
+    outline-offset: 3px;
+  }
+}
+
+@layer components {
+  .full-bleed {
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+  }
+  /* motif zellige marocain */
+  .zellige {
+    background-image:
+      radial-gradient(
+        circle at 50% 50%,
+        transparent 0 9px,
+        rgb(255 255 255 / 0.07) 9px 10px,
+        transparent 10px
+      ),
+      conic-gradient(
+        from 45deg at 50% 50%,
+        rgb(255 255 255 / 0.05) 0 25%,
+        transparent 0 50%,
+        rgb(255 255 255 / 0.05) 0 75%,
+        transparent 0
+      );
+    background-size:
+      44px 44px,
+      44px 44px;
+  }
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.rise {
+  opacity: 0;
+  animation: rise 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
+}
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .rise {
+    animation: none;
+    opacity: 1;
+  }
+}
